@@ -1,0 +1,9 @@
+#!/bin/sh
+
+git_dir="`git rev-parse --git-dir`"
+top_dir="`git rev-parse --show-toplevel`"
+
+git ls-files | ctags --tag-relative -L - -f $top_dir/tags --languages=-javascript,sql
+
+mkdir -p $git_dir/info
+echo tags >> $git_dir/info/exclude
