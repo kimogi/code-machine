@@ -3,6 +3,7 @@
 git_dir="`git rev-parse --git-dir`"
 top_dir="`git rev-parse --show-toplevel`"
 
+rm -rf $top_dir/tags
 git ls-files | ctags --tag-relative -L - -f $top_dir/tags --languages=-javascript,sql
 
 mkdir -p $git_dir/info
